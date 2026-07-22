@@ -1,5 +1,6 @@
 import './style.css';
 import './zoom.css';
+import './ticket-style.css';
 import './overrides.css';
 import './input-fix.css';
 import './timer.css';

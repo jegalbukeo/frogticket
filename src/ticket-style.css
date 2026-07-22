@@ -1,0 +1,20 @@
+.ticket {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(31, 47, 86, 0.16);
+}
+
+.ticket::before,
+.ticket::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  top: calc(50% - 8px);
+}
+
+.ticket::before { left: -8px; }
+.ticket::after { right: -8px; }
