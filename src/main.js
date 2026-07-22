@@ -1,4 +1,5 @@
 import './style.css';
+import './zoom.css';
 import './overrides.css';
 import './input-fix.css';
 import './timer.css';
@@ -11,6 +12,7 @@ import './waiting.css';
 import './header-clean.css';
 import './posters.css';
 import './captcha-mobile.css';
+document.addEventListener('dblclick', event => event.preventDefault(), { passive: false });
 const shows=[
  {id:'crown',category:'콘서트',artist:'VANTA',title:'THE CROWN : FINAL',poster:'posters/crown.jpg',sub:'SEOUL · GOCHEOK SKY DOME',date:'10.12 SAT 7PM',difficulty:'VERY HARD',audience:'42,816',lockedRange:[27,33],loss:.8,theme:'purple',opening:true},
  {id:'neon',category:'팬미팅',artist:'ASTER',title:'NEON WAVE WORLD TOUR',poster:'posters/neon.jpg',sub:'SEOUL · OLYMPIC HALL',date:'08.24 SAT 7PM',difficulty:'HARD',audience:'18,742',lockedRange:[18,26],loss:.55,theme:'purple'},
