@@ -50,7 +50,11 @@ header { display: none; }
 /* 등급별 포도알 좌석 */
 .seat {
   border-radius: 4px;
-  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .13), 0 1px 2px rgba(0, 0, 0, .16);
+  box-shadow: none;
+  height: 29px;
+  aspect-ratio: auto;
+  transition: none;
+  transform: none;
 }
 .seat.vip { background: #ea5265; }
 .seat.r { background: #8259d8; }
@@ -69,12 +73,12 @@ header { display: none; }
 }
 
 .seat:not(.locked) {
-  min-height: 29px;
   min-width: 0;
   touch-action: manipulation;
 }
 .seat-line > div { grid-template-columns: repeat(10, minmax(0, 1fr)); }
 .seat { width: 100%; }
+.seat.chosen { transform: none; }
 
 .full-rank {
   margin: 22px 0;
