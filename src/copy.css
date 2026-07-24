@@ -91,12 +91,14 @@ header { display: none; }
 .ticket-card .ticket-top { padding: 18px 20px 15px; }
 .ticket-card .ticket-top > small { display: block; color: #bbc4e3; font: 9px monospace; }
 .ticket-card .ticket-top > b { display: block; margin-top: 7px; font-size: 16px; line-height: 1.25; }
+.ticket-card .ticket-date { display: block; margin-top: 7px; color: #bbc4e3; font: 9px monospace; }
 .ticket-card .ticket-meta { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px dashed #92a0ca; }
 .ticket-card .ticket-meta div { padding: 13px 20px 16px; }
 .ticket-card .ticket-meta div + div { border-left: 1px dashed #92a0ca; }
 .ticket-card .ticket-meta small { display: block; color: #bbc4e3; font: 9px monospace; }
 .ticket-card .ticket-meta b { display: block; margin-top: 5px; font-size: 14px; }
 .ticket-card .ticket-meta strong { display: block; margin-top: 5px; color: #fff; font-size: 14px; }
+.ticket-card .ticket-meta div { padding-top: 16px; }
 .result-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
 .result-stats > div { min-width: 0; padding: 10px 5px; text-align: center; }
 .result-stats > div small { font-size: 7px; white-space: nowrap; }
