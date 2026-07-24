@@ -109,6 +109,28 @@ header { display: none; }
 .result-stats > div b { font-size: 12px; white-space: nowrap; }
 .result-stats > div span { font-size: 8px; line-height: 1.25; }
 
+/* 완료 결과는 모바일 한 화면 안에서 확인 */
+.result {
+  height: 100dvh;
+  min-height: 0;
+  padding: 16px 21px 14px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.result .success { width: 38px; height: 38px; padding-top: 5px; margin: 0 auto 6px; font-size: 23px; }
+.result h1 { margin: 5px 0 3px; font-size: 25px; }
+.result > p { margin: 3px 0; font-size: 12px; }
+.result .ticket-card { margin: 12px 0 10px; }
+.ticket-card .ticket-top { padding: 13px 16px 11px; }
+.ticket-card .ticket-meta div { padding: 10px 16px 12px; }
+.full-rank { margin: 0 0 9px; padding: 14px 15px; }
+.full-rank > b { margin: 2px 0; font-size: 72px; }
+.full-rank strong { font-size: 13px; }
+.full-rank p { margin-top: 4px; }
+.result-stats { margin-top: 0; }
+.result .cta { margin-top: auto; padding: 13px; }
+
 /* 이선좌와 구분되는 대형 솔드아웃 팝업 */
 .soldout-backdrop { align-items: center; padding: 24px; }
 .soldout-panel {
