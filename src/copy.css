@@ -76,6 +76,18 @@ header { display: none; }
 .seat-line > div { grid-template-columns: repeat(10, minmax(0, 1fr)); }
 .seat { width: 100%; }
 
+.full-rank {
+  margin: 22px 0;
+  padding: 24px 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #fff4df, #fffaf1);
+}
+.full-rank small { display: block; color: #a06a22; font: 700 10px monospace; letter-spacing: .12em; }
+.full-rank > b { display: block; margin: 4px 0; color: #f08c24; font: 800 92px/.9 Arial; letter-spacing: -7px; }
+.full-rank strong { display: block; font-size: 15px; }
+.full-rank p { margin: 7px 0 0; color: #8c7b61; font-size: 11px; }
+.result-stats { margin-top: 12px; }
+
 /* 이선좌와 구분되는 대형 솔드아웃 팝업 */
 .soldout-backdrop { align-items: center; padding: 24px; }
 .soldout-panel {
