@@ -134,7 +134,7 @@ header { display: none; }
 .ready-page { text-align: center; }
 .ready-page .ready-icon { margin-top: 42px; font-size: 46px; }
 .ready-count { margin-top: 24px; color: #365be8; font: 800 72px/.9 Arial; letter-spacing: -4px; }
-.ready-count b, .open-count b { display: inline-block; animation: countdown-bounce .68s cubic-bezier(.2, .9, .25, 1.35) both; }
+.ready-count b { display: inline-block; animation: countdown-bounce .68s cubic-bezier(.2, .9, .25, 1.35) both; }
 .open-ready-page { text-align: center; }
 .open-ready-page .ready-icon { margin-top: 32px; font-size: 38px; }
 .open-ready-page h1 { margin-bottom: 9px; }
