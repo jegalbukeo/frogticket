@@ -56,13 +56,22 @@ header { display: none; }
 .seat.r { background: #8259d8; }
 .seat.s { background: #4c8fe0; }
 .seat.a { background: #55b787; }
+.seat.b { background: #d89a48; }
 .legend .vip { background: #ea5265; }
 .legend .r { background: #8259d8; }
 .legend .s { background: #4c8fe0; }
+.legend .a { background: #55b787; }
+.legend .b { background: #d89a48; }
 .seat.locked {
   background: #d9dce2 !important;
   color: #a5a9b0;
   box-shadow: none;
+}
+
+.seat:not(.locked) {
+  min-height: 29px;
+  min-width: 29px;
+  touch-action: manipulation;
 }
 
 /* 이선좌와 구분되는 대형 솔드아웃 팝업 */

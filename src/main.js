@@ -21,7 +21,7 @@ const shows=[
  {id:'horizon',category:'뮤지컬',artist:'MELLOWDAY',title:'HORIZON FAN CONCERT',poster:'posters/horizon.jpg',sub:'SEOUL · KSPO DOME',date:'09.07 SAT 6PM',difficulty:'NORMAL',audience:'7,386',lockedRange:[10,18],loss:.28,theme:'orange'},
  {id:'luna',category:'콘서트',artist:'콘서트',title:'LUNA ACOUSTIC NIGHT',sub:'SEOUL · BLUE SQUARE',date:'09.21 SAT 8PM',difficulty:'EASY',audience:'1,924',lockedRange:[4,11],loss:.12,theme:'blue'}
 ];
-const allRows=[['A','VIP','154,000원',740],['B','R','132,000원',540],['C','S','110,000원',360],['D','A','88,000원',180],['E','S','110,000원',360],['F','A','88,000원',180],['G','A','88,000원',180]];
+const allRows=[['A','VIP','154,000원',740],['B','S','132,000원',540],['C','A','110,000원',360],['D','B','88,000원',180],['E','A','110,000원',360],['F','B','88,000원',180],['G','B','88,000원',180]];
 let rows=allRows.slice(0,4);
 const baseLocked=[];
 const state={stage:'list',show:null,picked:null,started:0,openingStarted:0,queueJoinDelay:0,captchaTime:0,bookingTime:0,score:0,locked:new Set(baseLocked),captcha:'',timer:null,waitTimer:null,countdown:0,queueNumber:0,queueStart:0,conflict:false,soldout:false,completed:false};
@@ -109,6 +109,8 @@ function queueWaiting(){const progress=Math.max(0,100-Math.round(state.queueNumb
 startVeryHardQueue=startVeryHardQueueLive;
 startHardQueue=startHardQueueLive;
 queue=queueWaiting;
+function bindFriendlySeats(){bindOpenWaitQueue();const legend=document.querySelector('.legend');if(legend)legend.innerHTML='<span><i class="vip"></i>VIP</span><span><i class="s"></i>S</span><span><i class="a"></i>A</span><span><i class="b"></i>B</span><span><i class="used"></i>선택불가</span>';document.querySelectorAll('.seat:not(.locked)').forEach(seat=>seat.onpointerup=event=>{if(state.stage!=='seat')return;event.preventDefault();state.picked=seat.dataset.seat;render()})}
+bind=bindFriendlySeats;
 function lossDelay(){const [min,max]={ 'VERY HARD':[250,1050],HARD:[450,1500],NORMAL:[700,2100],EASY:[950,2700] }[state.show.difficulty];return min+Math.random()*(max-min)}
 function scheduleLoss(){tick();if(!state.soldout&&!state.completed)state.timer=setTimeout(scheduleLoss,lossDelay())}
 
@@ -120,5 +122,7 @@ function allSeats(){return rows.flatMap(([r])=>Array.from({length:10},(_,i)=>r+(
 function randomLocked(show){const [min,max]=show.lockedRange;let count=min+Math.floor(Math.random()*(max-min+1));if(show.opening)count+=Math.min(12,Math.floor(state.queueNumber/120));return allSeats().sort(()=>Math.random()-.5).slice(0,count)}
 function lose(){const available=allSeats().filter(x=>!state.locked.has(x));const candidates=available.filter(x=>x!==state.picked);if(candidates.length)state.locked.add(candidates[Math.floor(Math.random()*candidates.length)])}
 function book(){const remaining=allSeats().filter(x=>!state.locked.has(x));if(remaining.length<=1){clearInterval(state.timer);state.locked.add(state.picked);state.picked=null;state.soldout=true;render();return}if(Math.random()<state.show.loss){state.locked.add(state.picked);state.picked=null;if(!allSeats().some(x=>!state.locked.has(x))){clearInterval(state.timer);state.soldout=true}else state.conflict=true;render();return}clearInterval(state.timer);state.bookingTime=elapsed();const seat=meta(state.picked),seatPoints={VIP:600,R:430,S:270,A:120}[seat[1]],speedBonus=Math.max(0,400-Math.round(Number(state.bookingTime)*25));state.score=seatPoints+speedBonus;state.completed=true;state.stage='seat';render()}
+function bookGrade(){const remaining=allSeats().filter(x=>!state.locked.has(x));if(remaining.length<=1){clearInterval(state.timer);state.locked.add(state.picked);state.picked=null;state.soldout=true;render();return}if(Math.random()<state.show.loss){state.locked.add(state.picked);state.picked=null;if(!allSeats().some(x=>!state.locked.has(x))){clearInterval(state.timer);state.soldout=true}else state.conflict=true;render();return}clearInterval(state.timer);state.bookingTime=elapsed();const seat=meta(state.picked),seatPoints={VIP:600,S:430,A:270,B:120}[seat[1]],speedBonus=Math.max(0,400-Math.round(Number(state.bookingTime)*25));state.score=seatPoints+speedBonus;state.completed=true;state.stage='seat';render()}
+book=bookGrade;
 function reset(){clearInterval(state.timer);clearInterval(state.waitTimer);rows=allRows.slice(0,4);Object.assign(state,{stage:'list',show:null,picked:null,started:0,captchaTime:0,bookingTime:0,score:0,locked:new Set(baseLocked),captcha:'',timer:null,waitTimer:null,countdown:0,queueNumber:0,queueStart:0,conflict:false,soldout:false,completed:false});render()}
 function toast(x){let e=document.querySelector('#toast');if(!e)return;e.textContent=x;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}render();
