@@ -139,6 +139,7 @@ header { display: none; }
 .open-ready-page .ready-icon { margin-top: 32px; font-size: 38px; }
 .open-ready-page h1 { margin-bottom: 9px; }
 .open-ready-page p { margin: 0; }
+.open-ready-page .open-count { margin: 28px auto 14px; font: 800 72px/.9 Arial; letter-spacing: -4px; }
 .open-ready-page > small { display: block; margin-top: 13px; color: #8a91a1; font-size: 10px; }
 .open-ready-page .cta { margin-top: 24px; }
 @keyframes countdown-bounce {
