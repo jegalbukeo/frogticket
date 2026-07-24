@@ -75,6 +75,8 @@ function listFinal(){return `<main class="list"><div class="list-title"><span>CO
 list=listFinal;
 function beginBooking(){rows=state.show.opening?allRows:state.show.difficulty==='HARD'?allRows.slice(0,5):allRows.slice(0,4);state.locked=new Set(randomLocked(state.show));state.captcha=makeCaptcha();state.started=performance.now();state.soldout=false;state.completed=false;state.stage='captcha';state.timer=setTimeout(scheduleLoss,lossDelay());render()}
 
+function beginBookingEasy(){rows=state.show.opening?allRows:state.show.difficulty==='HARD'?allRows.slice(0,5):allRows.slice(0,4);state.locked=new Set(randomLocked(state.show));state.captcha=makeCaptcha();state.started=performance.now();state.captchaTime=0;state.soldout=false;state.completed=false;state.stage=state.show.difficulty==='EASY'?'seat':'captcha';state.timer=setTimeout(scheduleLoss,lossDelay());render()}
+beginBooking=beginBookingEasy;
 function lossDelay(){const [min,max]={ 'VERY HARD':[250,1050],HARD:[450,1500],NORMAL:[700,2100],EASY:[950,2700] }[state.show.difficulty];return min+Math.random()*(max-min)}
 function scheduleLoss(){tick();if(!state.soldout&&!state.completed)state.timer=setTimeout(scheduleLoss,lossDelay())}
 
