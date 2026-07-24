@@ -1,0 +1,6 @@
+.crowd { font-size: 0 !important; }
+.crowd::after {
+  content: '● 실시간 좌석 소진 중';
+  color: #777;
+  font-size: 9px;
+}

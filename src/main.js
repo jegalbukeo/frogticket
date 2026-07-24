@@ -1,6 +1,7 @@
 import './style.css';
 import './zoom.css';
 import './ticket-style.css';
+import './copy.css';
 import './overrides.css';
 import './input-fix.css';
 import './timer.css';
@@ -64,6 +65,10 @@ function queueNew(){const progress=Math.max(0,100-Math.round(state.queueNumber/s
 function bindNew(){let q=s=>document.querySelector(s);document.querySelectorAll('[data-show]').forEach(b=>b.onclick=()=>{state.show=shows.find(s=>s.id===b.dataset.show);if(state.show.opening){state.openingStarted=Date.now();state.countdown=10;state.stage='openwait';state.waitTimer=setInterval(()=>{state.countdown--;if(state.countdown<=0){clearInterval(state.waitTimer);state.countdown=0}render()},1000);render()}else beginBooking()});if(q('#joinQueue'))q('#joinQueue').onclick=startVeryHardQueue;if(q('#verify'))q('#verify').onclick=verify;if(q('#input')){const input=q('#input');input.oninput=e=>e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');input.onkeydown=e=>{if(e.key==='Enter'){verify();return}if(e.key==='Backspace'){e.preventDefault();input.value=input.value.slice(0,-1);return}const letter=e.code.match(/^Key([A-Z])$/),digit=e.code.match(/^Digit([0-9])$/);if(letter||digit){e.preventDefault();input.value=(input.value+(letter?.[1]||digit?.[1])).slice(0,6)}};setTimeout(()=>input.focus(),0)}document.querySelectorAll('.seat:not(.locked)').forEach(b=>b.onclick=()=>{state.picked=b.dataset.seat;render()});if(q('#book'))q('#book').onclick=book;if(q('#close'))q('#close').onclick=()=>{if(state.soldout)reset();else{state.conflict=false;render()}};if(q('#retry'))q('#retry').onclick=reset;if(q('#share'))q('#share').onclick=shareResult;if(q('#restart'))q('#restart').onclick=reset}
 queue=queueNew;
 bind=bindNew;
+function listNew(){return `<main class="list"><div class="list-title"><span>CONCERT TICKETING GAME</span><h1>티켓팅 전쟁</h1><p>과연 무사히 공연에 갈 수 있을까?<br>행운을 빕니다.</p></div><div class="show-list">${shows.map(s=>`<button class="show-card ${s.theme}" data-show="${s.id}"><div class="mini-poster ${s.poster?'has-poster':'luna-poster'}" ${s.poster?`style="background-image:url('${s.poster}')"`:''}><b>${s.id==='neon'?'NEON<br>WAVE':s.id==='horizon'?'HORIZON':s.id==='luna'?'LUNA':'THE<br>CROWN'}</b></div><div class="show-copy"><small class="artist">${s.category} · ${s.artist}</small><strong>${s.title}</strong><span>${s.sub}<br>${s.date}</span><em class="${s.difficulty.toLowerCase()}">● 예매 전쟁 진행 중 · ${s.difficulty}</em></div><i>›</i></button>`).join('')}</div></main>`}
+function queueLatest(){const progress=Math.max(0,100-Math.round(state.queueNumber/state.queueStart*100));const timing=state.queueJoinDelay?`오픈 ${state.queueJoinDelay}초 후 접속`:'오픈 직후 접속';return `<main class="wait-page queue-page"><span class="step">BOOKING QUEUE</span><h1>예매 대기열<br>접속 중</h1><p>${timing} · 예매자가 한꺼번에 몰리고 있어요.</p><div class="queue-number">앞에 남은 대기 인원<br><b>${state.queueNumber.toLocaleString()}명</b></div><div class="queue-bar"><i style="width:${progress}%"></i></div><small>오픈 직후 접속 폭주로 실시간 대기열이 반영됩니다.</small></main>`}
+list=listNew;
+queue=queueLatest;
 function beginBooking(){rows=state.show.opening?allRows:state.show.difficulty==='HARD'?allRows.slice(0,5):allRows.slice(0,4);state.locked=new Set(randomLocked(state.show));state.captcha=makeCaptcha();state.started=performance.now();state.soldout=false;state.completed=false;state.stage='captcha';state.timer=setTimeout(scheduleLoss,lossDelay());render()}
 
 function lossDelay(){const [min,max]={ 'VERY HARD':[250,1050],HARD:[450,1500],NORMAL:[700,2100],EASY:[950,2700] }[state.show.difficulty];return min+Math.random()*(max-min)}
