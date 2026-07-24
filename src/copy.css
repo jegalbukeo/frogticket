@@ -4,3 +4,16 @@
   color: #777;
   font-size: 9px;
 }
+
+.difficulty-badge {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  font: 700 9px/1 monospace;
+  letter-spacing: .04em;
+}
+.difficulty-badge.very-hard { color: #fff; background: #5a37b8; }
+.difficulty-badge.hard { color: #c63045; background: #fff0f2; }
+.difficulty-badge.normal { color: #a46013; background: #fff4df; }
+.difficulty-badge.easy { color: #18734e; background: #e8f7ef; }
