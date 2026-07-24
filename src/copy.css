@@ -14,6 +14,39 @@ header { display: none; }
 }
 .queue-behind b { color: #59627b; }
 
+.soldout-backdrop {
+  align-items: flex-end;
+  padding: 0;
+}
+.soldout-panel {
+  width: 100%;
+  min-height: 390px;
+  padding: 30px 24px 28px;
+  border-radius: 28px 28px 0 0;
+  background: #1e2949;
+  color: #fff;
+  text-align: left;
+}
+.soldout-eyebrow {
+  color: #ffcb59;
+  font: 700 10px monospace;
+  letter-spacing: .16em;
+}
+.soldout-icon { margin: 20px 0 12px; font-size: 42px; }
+.soldout-panel h2 { margin: 0; font-size: 28px; line-height: 1.2; letter-spacing: -1.4px; }
+.soldout-panel p { margin: 16px 0; color: #d6ddec; font-size: 13px; line-height: 1.7; }
+.soldout-note { margin-top: 22px; color: #9ba9cc; font-size: 12px; }
+.soldout-panel button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 17px;
+  border: 0;
+  border-radius: 12px;
+  background: #ffcb59;
+  color: #1e2949;
+  font-weight: 800;
+}
+
 .difficulty-badge {
   display: inline-block;
   margin-top: 7px;
