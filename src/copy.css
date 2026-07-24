@@ -87,6 +87,21 @@ header { display: none; }
 .full-rank strong { display: block; font-size: 15px; }
 .full-rank p { margin: 7px 0 0; color: #8c7b61; font-size: 11px; }
 .result-stats { margin-top: 12px; }
+.ticket-card { display: block; padding: 0; overflow: hidden; }
+.ticket-card .ticket-top { padding: 18px 20px 15px; }
+.ticket-card .ticket-top > small { display: block; color: #bbc4e3; font: 9px monospace; }
+.ticket-card .ticket-top > b { display: block; margin-top: 7px; font-size: 16px; line-height: 1.25; }
+.ticket-card .ticket-meta { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px dashed #92a0ca; }
+.ticket-card .ticket-meta div { padding: 13px 20px 16px; }
+.ticket-card .ticket-meta div + div { border-left: 1px dashed #92a0ca; }
+.ticket-card .ticket-meta small { display: block; color: #bbc4e3; font: 9px monospace; }
+.ticket-card .ticket-meta b { display: block; margin-top: 5px; font-size: 14px; }
+.ticket-card .ticket-meta strong { display: block; margin-top: 5px; color: #fff; font-size: 14px; }
+.result-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+.result-stats > div { min-width: 0; padding: 10px 5px; text-align: center; }
+.result-stats > div small { font-size: 7px; white-space: nowrap; }
+.result-stats > div b { font-size: 12px; white-space: nowrap; }
+.result-stats > div span { font-size: 8px; line-height: 1.25; }
 
 /* 이선좌와 구분되는 대형 솔드아웃 팝업 */
 .soldout-backdrop { align-items: center; padding: 24px; }
