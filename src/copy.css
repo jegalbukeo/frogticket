@@ -5,6 +5,8 @@
   font-size: 9px;
 }
 
+header { display: none; }
+
 .difficulty-badge {
   display: inline-block;
   margin-top: 7px;
