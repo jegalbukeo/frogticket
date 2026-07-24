@@ -49,13 +49,16 @@ header { display: none; }
 
 /* 등급별 포도알 좌석 */
 .seat {
-  border-radius: 50%;
+  border-radius: 4px;
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .13), 0 1px 2px rgba(0, 0, 0, .16);
 }
 .seat.vip { background: #ea5265; }
 .seat.r { background: #8259d8; }
 .seat.s { background: #4c8fe0; }
 .seat.a { background: #55b787; }
+.legend .vip { background: #ea5265; }
+.legend .r { background: #8259d8; }
+.legend .s { background: #4c8fe0; }
 .seat.locked { box-shadow: none; }
 
 /* 이선좌와 구분되는 대형 솔드아웃 팝업 */
