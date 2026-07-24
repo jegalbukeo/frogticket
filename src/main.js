@@ -21,7 +21,7 @@ const shows=[
  {id:'horizon',category:'뮤지컬',artist:'MELLOWDAY',title:'HORIZON FAN CONCERT',poster:'posters/horizon.jpg',sub:'SEOUL · KSPO DOME',date:'09.07 SAT 6PM',difficulty:'NORMAL',audience:'7,386',lockedRange:[10,18],loss:.28,theme:'orange'},
  {id:'luna',category:'콘서트',artist:'콘서트',title:'LUNA ACOUSTIC NIGHT',sub:'SEOUL · BLUE SQUARE',date:'09.21 SAT 8PM',difficulty:'EASY',audience:'1,924',lockedRange:[4,11],loss:.12,theme:'blue'}
 ];
-const allRows=[['A','VIP','154,000원',740],['B','VIP','154,000원',740],['C','VIP','154,000원',740],['D','S','132,000원',540],['E','S','132,000원',540],['F','A','110,000원',360],['G','B','88,000원',180]];
+const allRows=[['A','VIP','154,000원',740],['B','S','132,000원',540],['C','A','110,000원',360],['D','A','110,000원',360],['E','B','88,000원',180],['F','B','88,000원',180],['G','B','88,000원',180]];
 let rows=allRows.slice(0,4);
 const baseLocked=[];
 const state={stage:'list',show:null,picked:null,started:0,openingStarted:0,queueJoinDelay:0,captchaTime:0,bookingTime:0,score:0,locked:new Set(baseLocked),captcha:'',timer:null,waitTimer:null,countdown:0,queueNumber:0,queueStart:0,conflict:false,soldout:false,completed:false};
