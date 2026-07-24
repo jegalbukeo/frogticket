@@ -70,9 +70,11 @@ header { display: none; }
 
 .seat:not(.locked) {
   min-height: 29px;
-  min-width: 29px;
+  min-width: 0;
   touch-action: manipulation;
 }
+.seat-line > div { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+.seat { width: 100%; }
 
 /* 이선좌와 구분되는 대형 솔드아웃 팝업 */
 .soldout-backdrop { align-items: center; padding: 24px; }
