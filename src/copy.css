@@ -7,6 +7,13 @@
 
 header { display: none; }
 
+.queue-behind {
+  margin-top: 13px;
+  color: #81899a;
+  font-size: 11px;
+}
+.queue-behind b { color: #59627b; }
+
 .difficulty-badge {
   display: inline-block;
   margin-top: 7px;
