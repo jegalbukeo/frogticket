@@ -133,7 +133,7 @@ header { display: none; }
 
 .ready-page { text-align: center; }
 .ready-page .ready-icon { margin-top: 42px; font-size: 46px; }
-.ready-page .open-count { margin-top: 28px; }
+.ready-count { margin-top: 24px; color: #365be8; font: 800 72px/.9 Arial; letter-spacing: -4px; }
 .ready-page > small { display: block; margin-top: 14px; color: #8a91a1; font-size: 10px; }
 
 /* 이선좌와 구분되는 대형 솔드아웃 팝업 */
